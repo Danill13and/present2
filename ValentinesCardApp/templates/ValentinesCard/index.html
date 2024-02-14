@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            background: linear-gradient(30deg, rgba(255, 77, 0, 0.09576330532212884) 0%, rgba(255, 77, 0, 0.8156512605042017) 30%, rgba(235, 1, 255, 1) 54%);
+            height: 100vh;
+            margin: 0;
+        }
+
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #btnYes,
+        #btnNo {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: 1px;
+            border-radius: 16px;
+            background: rgb(252, 174, 252);
+        }
+    </style>
+</head>
+<body>
+    <div id="question">Ты будешь моей валентинкой?</div>
+    <button id="btnYes" onclick="showMessage()">Да</button>
+    <button id="btnNo" onclick="moveButton()">Нет</button>
+
+    <script>
+        function moveButton() {
+            var btnNo = document.getElementById("btnNo");
+            var maxX = window.innerWidth - btnNo.offsetWidth;
+            var maxY = window.innerHeight - btnNo.offsetHeight;
+            var newX = Math.floor(Math.random() * maxX);
+            var newY = Math.floor(Math.random() * maxY);
+            btnNo.style.left = newX + "px";
+            btnNo.style.top = newY + "px";
+            btnNo.style.position = "absolute";
+        }
+
+        function showMessage() {
+            var question = document.getElementById("question");
+            var btnYes = document.getElementById("btnYes");
+            var btnNo = document.getElementById("btnNo");
+
+            question.innerHTML = "Урааааа, с 14 февроля ❤️";
+            btnYes.style.display = "none";
+            btnNo.style.display = "none";
+        }
+    </script>
+</body>
+</html>
